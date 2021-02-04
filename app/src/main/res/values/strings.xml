@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">favoriteScriptureApp</string>
-    <string name="edit_message">Enter a book</string>
-    <string name="edit_message2">Enter a chapter</string>
-    <string name="edit_message3">Enter a verse</string>
-    <string name="button_send">Store</string>
 </resources>
