@@ -4,30 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
-public class SecondActivity extends AppCompatActivity {
+import static com.example.favoritescriptureapp.MainActivity.BOOK_INPUT;
+import static com.example.favoritescriptureapp.MainActivity.CHAPTER_INPUT;
+import static com.example.favoritescriptureapp.MainActivity.VERSE_INPUT;
 
-    //TextView tv2, tv3, tv4;
-    //String book1;
-    //int ch, v;
+public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        TextView tv2, tv3, tv4;
+        Intent intent = getIntent();
+        String quotation = intent.getStringExtra(BOOK_INPUT)
+                + " "
+                + intent.getStringExtra(CHAPTER_INPUT)
+                + ":"
+                + intent.getStringExtra(VERSE_INPUT);
+
+        Log.i("BYUI", "Reveived intent with " + quotation);
+
+        TextView tv2;
         tv2 = findViewById(R.id.textView2);
-        tv3 = findViewById(R.id.textView3);
-        tv4 = findViewById(R.id.textView4);
 
-        String message = getIntent().getStringExtra(MainActivity.BOOK_INPUT);
-        String message2 = getIntent().getStringExtra(MainActivity.CHAPTER_INPUT);
-        String message3 = getIntent().getStringExtra(MainActivity.VERSE_INPUT);
-
-        tv2.setText(message);
-        tv3.setText(message2);
-        tv4.setText(message3);
+        tv2.setText(quotation);
     }
 }
